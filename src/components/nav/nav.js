@@ -4,8 +4,6 @@ import style from "./style"
 
 
 
-
-
 class Nav extends Component {
     render (){
         return (

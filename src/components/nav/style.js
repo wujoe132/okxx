@@ -4,7 +4,7 @@ const style = {
         height: "60px",
         backgroundColor: "red",
         position: "fixed",
-        zIndex: "1"
+        // zIndex: "1"
     },
     input: {
         backgroundColor: "inherit",
