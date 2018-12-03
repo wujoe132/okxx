@@ -6,6 +6,10 @@ import Nav from "./components/nav/nav";
 import YtUlts from './ults/ytUlts';
 import articles from "./data/articles";
 import images from "./data/images"
+// import { library } from '@fortawesome/fontawesome-svg-core'
+// import { fas } from '@fortawesome/free-solid-svg-icons'
+// import { fab } from '@fortawesome/free-brands-svg-icons'
+
 
 
 

@@ -20,21 +20,27 @@ class YtUlts extends Component {
                 })} */}
                  <div style= { style.main }>
                     <img style={ style.img } src={ require("../assets/image1.jpeg") }></img> 
-                    <h1>{ articles[0].title }</h1>
-                    <p>{ articles[0].content }</p>
-                    <p>{ articles[0].views }</p>
+                    <h1 style= { style.t }>{ articles[0].title }</h1>
+                    <div style={ style.p }>
+                        <p>{ articles[0].content }</p>
+                        <p>{ articles[0].views }</p>
+                    </div>
                 </div>
                 <div style= { style.main }>
                     <img style={ style.img } src={ require("../assets/image2.jpeg") }></img> 
-                    <h1>{ articles[1].title }</h1>
-                    <p>{ articles[1].content }</p>
-                    <p>{ articles[1].views }</p>
+                    <h1 style= { style.t }>{ articles[1].title }</h1>
+                    <div style={ style.p }>
+                        <p>{ articles[1].content }</p>
+                        <p>{ articles[1].views }</p>
+                    </div>
                 </div>
                 <div style= { style.main }>
                     <img style={ style.img } src={ require("../assets/image3.jpeg") }></img> 
-                    <h1>{ articles[2].title }</h1>
-                    <p>{ articles[2].content }</p>
-                    <p>{ articles[2].views }</p>
+                    <h1 style= { style.t }>{ articles[2].title }</h1>
+                    <div style={ style.p }>
+                        <p>{ articles[2].content }</p>
+                        <p>{ articles[2].views }</p>
+                    </div>
                 </div>
             </div>
         )
