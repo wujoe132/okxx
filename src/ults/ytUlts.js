@@ -1,51 +1,17 @@
-import React, { Component } from "react";
-import style from "./style";
-import images from "../data/images";
-import articles from "../data/articles";
+import axios from "axios";
+import  { YOUTUBE_API_KEY } from "../config/APIKEY";
+export const getMostPopularVideos = () => {
+    const url = "https://www.googleapis.com/youtube/v3/videos";
+    const params = {
+        key: YOUTUBE_API_KEY,
+        chart:"mostPopular",
+        regionCode: "US",
+        part: "snippet,contentDetails,statistics",
+        maxResult: 20
+    };
 
-class YtUlts extends Component { 
-    
-    render (){
-        return (
-            <div style= { style.blog }>
-                {/* {this.props.articles.map((articles, index) => {
-                    return (
-                        <div >
-                            <img src={ require(`../assets/image${index}.jpeg`) }></img>
-                            <h1>{ articles.title }</h1>
-                            <p>{ articles.content }</p>
-                            <p>{ articles.views }</p>
-                        </div>
-                    )
-                })} */}
-                 <div style= { style.main }>
-                    <img style={ style.img } src={ require("../assets/image1.jpeg") }></img> 
-                    <h1 style= { style.t }>{ articles[0].title }</h1>
-                    <div style={ style.p }>
-                        <p>{ articles[0].content }</p>
-                        <p>{ articles[0].views }</p>
-                    </div>
-                </div>
-                <div style= { style.main }>
-                    <img style={ style.img } src={ require("../assets/image2.jpeg") }></img> 
-                    <h1 style= { style.t }>{ articles[1].title }</h1>
-                    <div style={ style.p }>
-                        <p>{ articles[1].content }</p>
-                        <p>{ articles[1].views }</p>
-                    </div>
-                </div>
-                <div style= { style.main }>
-                    <img style={ style.img } src={ require("../assets/image3.jpeg") }></img> 
-                    <h1 style= { style.t }>{ articles[2].title }</h1>
-                    <div style={ style.p }>
-                        <p>{ articles[2].content }</p>
-                        <p>{ articles[2].views }</p>
-                    </div>
-                </div>
-            </div>
-        )
-    }     
-}
-
-export default YtUlts;
-
+    return axios.get(url,{ params }).then(res => {
+        // console.log("this is the API response:" , res);
+        return res.data;
+    })
+};

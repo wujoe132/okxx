@@ -8,6 +8,11 @@ const style = {
         display: "flex",
         justifyContent: "space-between"
     },
+    searchSection: {
+        display: "flex",
+        justifyContent: "space-between",
+        // alignItems: "flex-start"
+    },
     input: {
         backgroundColor: "inherit",
         border: "none",
@@ -16,7 +21,8 @@ const style = {
         color: "white",
         outline: "none",
         fontSize: "20px",
-        marginLeft: "60px",
+        marginRight: "20px",
+        // marginLeft: "60px",
         // display: "flex",
         // alignItems: "center",
         // justifyContent: "center",
@@ -38,7 +44,11 @@ const style = {
         // width: "30px",
         // height: "30px",
         fontSize: "25px",
-        postion: "fixed"
+        postion: "fixed",
+        "&:hover": {
+            color: "#ff0000",
+            cursor: "pointer"
+        }
     },
     seci: {
         // postion: "absolute",
