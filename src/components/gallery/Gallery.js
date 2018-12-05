@@ -26,7 +26,11 @@ class Gallery extends Component {
                                     <p>{ articles.content }</p>
                                     <p>{ articles.views }</p>
                                 </div> */}
-                                
+                                <div>
+                                    <div>
+
+                                    </div>
+                                </div>
                     
                             </div>
                         )
