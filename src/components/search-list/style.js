@@ -1,8 +1,6 @@
 const style = {
     blog: {
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap-reverse",
+        display: "block",
         paddingTop: "64px",
         paddingLeft: "100px",
         paddingRight: "100px",
@@ -12,18 +10,17 @@ const style = {
     main: {
         marginTop: "64px",
         marginRight: "20px",
-        width: "320px",
-        height: "300px",
+        width: "600px",
+        height: "200px",
         borderRadius: "2px",
         boxSizing: "border-box",
-        // borderStyle: "outset",
         borderImage: "initial",
         resize: "none",
         boxShadow: "1px 1px 1px 1px grey"
 
     },
     img: {
-        width: "320px",
+        width: "100px",
         height: "200px",
         
         

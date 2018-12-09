@@ -11,7 +11,6 @@ const style = {
     searchSection: {
         display: "flex",
         justifyContent: "space-between",
-        // alignItems: "flex-start"
     },
     input: {
         backgroundColor: "inherit",
@@ -22,27 +21,16 @@ const style = {
         outline: "none",
         fontSize: "20px",
         marginRight: "20px",
-        // marginLeft: "60px",
-        // display: "flex",
-        // alignItems: "center",
-        // justifyContent: "center",
-        // marginLeft: "200px",
-        // verticalAlign: "middle",
         paddingTop: "15px"
     },
     logo: {
         color: "white",
         marginLeft: "30px",
-        // marginRight: "auto",
         marginTop: "10px",
         marginBottom: "30px",
     },
     i: {
         paddingTop: "10px",
-        // paddingLeft: "10px",
-        // size: "90px",
-        // width: "30px",
-        // height: "30px",
         fontSize: "25px",
         postion: "fixed",
         "&:hover": {
@@ -51,16 +39,26 @@ const style = {
         }
     },
     seci: {
-        // postion: "absolute",
-        // float: "right",
         display: "flex",
-        // justifyContent: "flex-end",
         fontSize: "25px",
         textAlign: "right",
         marginRight: "30px",
         // marginRight: "auto",
         marginTop: "15px",
         marginBottom: "30px",
+        // position: "fixed"
+    },
+    profile: {
+        display: "block",
+        textDeoration: "none",
+        position: "relative",
+        zIndex: "1",
+        width: "30px",
+        color: "yellow"
+    },
+    list: {
+        width: "30px",
+        textDeoration: "none"
     }
 
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from "./style";
 
 class Card extends Component {
   constructor() {
@@ -11,10 +12,10 @@ class Card extends Component {
   render() {
     return (
       <div>
-          <ul>
+          <ul style={ style.list }>
               {/* <li></li>
               <li></li> */}
-              <li><a href="https://github.com/wujoe132">GitHub</a></li>
+              <li style={ style.profile }><a href="https://github.com/wujoe132">GitHub</a></li>
           </ul>
       </div>
     );
