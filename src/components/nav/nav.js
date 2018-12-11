@@ -6,10 +6,10 @@ class Nav extends Component {
        render (){
         return (
             <div style={ style.navbar }>
-                <h1 style={ style.logo }> OKXX </h1>
+                <h1 style={ style.logo }> <a href="/">OKXX</a></h1>
                 <div style={ style.searchSection }>
                     <form>
-                        <input onChange={ this.props.handleSearchInput }style={ style.input } placeholder = "search..." /> 
+                        <input onChange={ this.props.handleSearchInput } style={ style.input } placeholder = "search..." /> 
                     </form>
                     <div style= { style.i }>
                         <i onMouseOver={ this.props.handleMouseOver }  onClick={ this.props.handleSearchClick } className="fas fa-allergies"></i>

@@ -40,11 +40,26 @@ export const getVideoInfo = (videoId) => {
         id: videoId,
         part: 'snippet,contentDetails,statistics',
     }
-    
+
     return axios.get(url, { params }).then(res => {
         return res.data
     })
 
 }
+
+export const getRelativeVideoList = (videoId) => {
+    const url= "https://www.googleapis.com/youtube/v3/search";
+    const params = {
+        key: YOUTUBE_API_KEY,
+        part: 'snippet',
+        relatedToVideoId: videoId,
+        type: 'video'
+    };
+
+    return axios.get(url, { params }).then(res => {
+        return res.data
+    })
+}
+    
 
     

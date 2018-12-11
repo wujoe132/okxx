@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import style from "./style";
 
 class Card extends Component {
-  constructor() {
-    super();
-  }
-  
-
-
 
   render() {
     return (

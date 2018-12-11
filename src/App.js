@@ -4,8 +4,9 @@ import './App.css';
 import Gallery from "./components/gallery/Gallery";
 import SearchList from "./components/search-list/SearchList";
 import Nav from "./components/nav/nav";
+import VideoPlayer from "./components/video-player/VideoPlayer";
 
-import { getMostPopularVideos, fetchYouTubeVideos, getVideoInfo } from "./ults/ytUlts";
+import { getMostPopularVideos, fetchYouTubeVideos, getVideoInfo, getRelativeVideoList } from "./ults/ytUlts";
 
 
 
@@ -16,9 +17,13 @@ class App extends Component {
     this.state = {
         galleryVideos: "",
         searchResult: "",
-        searchClick: false,
-        searchinput: "",
+        searchInput: "",
+        videoId: "",
+        videoInfo: "",
         showMenu: false,
+        searchClick: false,
+        videoClick: false,
+        relatedVideos: "",
     }
     this.handleSearchClick = this.handleSearchClick.bind(this);
     this.handleSearchInput = this.handleSearchInput.bind(this);
@@ -52,30 +57,41 @@ class App extends Component {
 
   // If click search, display SearchList; if didn't click search, display Gallery
   handleSearchClick() {
-    const searchInput = this.state.searhInput;
+    const searchInput = this.state.searchInput;
     fetchYouTubeVideos(searchInput).then(res => {
       this.setState({
         searchResult: res,
         searchClick: true,
+      })
     })
-  })
-}
+  }
 
   handleSearchInput (event){
     this.setState({
-        searchinput: event.target.value
+        searchInput: event.target.value
     })
   }
 
 
   handleVideoClick(event) {
-    const videoID = event.target.id
-    getVideoInfo(videoID).then(res => {
-      console.log("this is the video", res);
+    const videoId = event.target.id;
+    getVideoInfo(videoId).then(res => {
+      this.setState({
+        videoClick: true,
+        videoId: videoId,
+        videoInfo: res.items[0]
+      })
+    });
+    getRelativeVideoList(videoId).then(res => {
+      this.setState({
+        relatedVideos: res,
+      })
     })
-      
+
+
   } 
   render() {
+      console.log("this is the state,", this.state)
     return (
       <div>
         <Nav 
@@ -84,16 +100,22 @@ class App extends Component {
           handleSearchInput={ this.handleSearchInput } 
           handleSearchClick={ this.handleSearchClick } 
           handleMenuClick={ this.handleMenuClick} 
-          meNu={ this.state.showMenu } />
-          
+          meNu={ this.state.showMenu }
+          handleVideoClick={ this.state.handleVideoClick } />
 
-          { this.state.searchClick  ? <SearchList videos={ this.state.searchResult }/> 
-                                    :  <Gallery videos={ this.state.galleryVideos } 
-                                                handleVideoClick={ this.handleVideoClick }/>  }
 
-      </div>
+          { this.state.searchClick  ? <SearchList videos={ this.state.searchResult } handleVideoClick={ this.handleVideoClick }/> 
+                                    : ( this.state.videoClick ? <VideoPlayer videoId = { this.state.videoId } videoInfo={ this.state.videoInfo } 
+                                                                      videos= { this.state.relatedVideos }/> 
+                                                              : <Gallery videos={ this.state.galleryVideos } 
+                                                                        handleVideoClick={ this.handleVideoClick } /> )}
+
+                                    
+      
+      
+      </div>   
     )
-  }
+}
 }
 
 export default App;

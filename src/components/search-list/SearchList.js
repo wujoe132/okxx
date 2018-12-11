@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import style from "./style";
 
 class SearchList extends Component {
-    constructor(props){
-        super(props);
-    }
+
     render(){
         if (!this.props.videos) {
             return (
@@ -14,9 +12,6 @@ class SearchList extends Component {
             )
         }
         else if (this.props.videos) {
-            
-            console.log("this is the state:", this.props.videos.items);
-
             return(
                 <div style= { style.blog }>
                       {this.props.videos.items.map((videos, index) => {
