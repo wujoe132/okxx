@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import style from "./style";
 import VideoList from "../video-list/videoList";
+import CommentsList from "../commentsList/comments";
 
 class VideoPlayer extends Component {
 
     render (){
-        console.log("in videoplayer", this.props)
+        // console.log("in videoplayer", this.props)
         if (!this.props.videoInfo) {
             return <div>Hello</div>
         }
@@ -23,6 +24,7 @@ class VideoPlayer extends Component {
                         <div>{ viewCount }</div>
                     </div>
                     <VideoList videoList={ this.props.videos }/>
+                    <CommentsList commentList= { this.props.list }/>
                 </div>
             )
         

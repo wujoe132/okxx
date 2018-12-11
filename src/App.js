@@ -6,7 +6,7 @@ import SearchList from "./components/search-list/SearchList";
 import Nav from "./components/nav/nav";
 import VideoPlayer from "./components/video-player/VideoPlayer";
 
-import { getMostPopularVideos, fetchYouTubeVideos, getVideoInfo, getRelativeVideoList } from "./ults/ytUlts";
+import { getMostPopularVideos, fetchYouTubeVideos, getVideoInfo, getRelativeVideoList, getCommentsList } from "./ults/ytUlts";
 
 
 
@@ -24,6 +24,7 @@ class App extends Component {
         searchClick: false,
         videoClick: false,
         relatedVideos: "",
+        commentsList: "",
     }
     this.handleSearchClick = this.handleSearchClick.bind(this);
     this.handleSearchInput = this.handleSearchInput.bind(this);
@@ -86,12 +87,17 @@ class App extends Component {
       this.setState({
         relatedVideos: res,
       })
+    });
+    getCommentsList(videoId).then(res => {
+      this.setState({
+        commentsList: res, 
+      })
     })
 
 
   } 
   render() {
-      console.log("this is the state,", this.state)
+      // console.log("this is the state,", this.state)
     return (
       <div>
         <Nav 
@@ -106,7 +112,7 @@ class App extends Component {
 
           { this.state.searchClick  ? <SearchList videos={ this.state.searchResult } handleVideoClick={ this.handleVideoClick }/> 
                                     : ( this.state.videoClick ? <VideoPlayer videoId = { this.state.videoId } videoInfo={ this.state.videoInfo } 
-                                                                      videos= { this.state.relatedVideos }/> 
+                                                                      videos={ this.state.relatedVideos } list={ this.state.commentsList }/> 
                                                               : <Gallery videos={ this.state.galleryVideos } 
                                                                         handleVideoClick={ this.handleVideoClick } /> )}
 

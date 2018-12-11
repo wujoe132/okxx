@@ -1,31 +1,27 @@
 import React, { Component } from "react";
 // import style from "./style";
 
-class VideoList extends Component {
-    render (){
-        // console.log("in videoplist", this.props)
-        if (!this.props.videoList.items) {
+class CommentsList extends Component {
+    render(){
+        if (!this.props.commentList) {
             // console.log("here")
             return (
-                <div>World</div>
+                <div>Loading...</div>
             )
         } 
-        else if (this.props.videoList.items) {
-            console.log(this.props.videoList);
-            
+        else if (this.props.commentList) {
             return(
                 <div>    
-                    {this.props.videoList.items.map((video, index) => {
-                        const imageList = video.snippet.thumbnails.high.url; 
+                    {this.props.commentList.items.map((video, index) => {
+                        const imageUrl = video.snippet.thumbnails.high.url; 
                         const title = video.snippet.title;
-                        
                         const channel = video.snippet.channelTitle;
                         const time = video.snippet.publishedAt;
                         const id = video.id;
         
                         return (
                             <div key={ index }>
-                                <img src={ imageList }onClick={ this.props.handleVideoClick } id={ id }></img>
+                                <img src={ imageUrl }onClick={ this.props.handleVideoClick } id={ id }></img>
                                 <h1  onClick={ this.props.handleVideoClick } id={ id }>{ title }</h1>
                                 <div onClick={ this.props.handleVideoClick }id={ id }>
                                     
@@ -40,5 +36,4 @@ class VideoList extends Component {
         }
     }
 }
-
-export default VideoList;
+export default CommentsList;
