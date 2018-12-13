@@ -10,13 +10,15 @@ class CommentsList extends Component {
             )
         } 
         else if (this.props.commentList) {
+            // console.log(this.props.commentList);
+            
             return(
                 <div>    
                     {this.props.commentList.items.map((video, index) => {
-                        const imageUrl = video.snippet.thumbnails.high.url; 
-                        const title = video.snippet.title;
-                        const channel = video.snippet.channelTitle;
-                        const time = video.snippet.publishedAt;
+                        const imageUrl = video.snippet.topLevelComment.snippet.authorProfileImageUrl; 
+                        const title = video.snippet.topLevelComment.snippet.authorDisplayName;
+                        const text = video.snippet.topLevelComment.snippet.textDisplay;
+                        const time = video.snippet.topLevelComment.snippet.publishedAt;
                         const id = video.id;
         
                         return (
@@ -24,9 +26,8 @@ class CommentsList extends Component {
                                 <img src={ imageUrl }onClick={ this.props.handleVideoClick } id={ id }></img>
                                 <h1  onClick={ this.props.handleVideoClick } id={ id }>{ title }</h1>
                                 <div onClick={ this.props.handleVideoClick }id={ id }>
-                                    
-                                    <p onClick={ this.props.handleVideoClick } id={ id }>{ time }</p>
-                                    <p onClick={ this.props.handleVideoClick } id={ id }>{ channel }</p>
+                                    <p onClick={ this.props.handleVideoClick } id={ id }>{ text }</p>
+                                    <p onClick={ this.props.handleVideoClick } id={ id }>{ time }</p> 
                                 </div>
                             </div>
                         )

@@ -53,7 +53,8 @@ export const getRelativeVideoList = (videoId) => {
         key: YOUTUBE_API_KEY,
         part: 'snippet',
         relatedToVideoId: videoId,
-        type: 'video'
+        type: 'video',
+        maxResults: 20,
     };
 
     return axios.get(url, { params }).then(res => {
@@ -66,7 +67,8 @@ export const getCommentsList = (videoId) => {
     const params = {
         key: YOUTUBE_API_KEY,
         part: 'snippet,replies',
-        videoId: videoId
+        videoId: videoId,
+        maxResults: 50,
     };
     
     return axios.get(url, { params }).then(res => {

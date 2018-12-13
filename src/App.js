@@ -20,11 +20,11 @@ class App extends Component {
         searchInput: "",
         videoId: "",
         videoInfo: "",
+        relatedVideos: "",
+        commentsList: "",
         showMenu: false,
         searchClick: false,
         videoClick: false,
-        relatedVideos: "",
-        commentsList: "",
     }
     this.handleSearchClick = this.handleSearchClick.bind(this);
     this.handleSearchInput = this.handleSearchInput.bind(this);
@@ -75,12 +75,15 @@ class App extends Component {
 
 
   handleVideoClick(event) {
+    console.log("here");
+    
     const videoId = event.target.id;
     getVideoInfo(videoId).then(res => {
       this.setState({
         videoClick: true,
         videoId: videoId,
-        videoInfo: res.items[0]
+        videoInfo: res.items[0],
+        searchClick: false,
       })
     });
     getRelativeVideoList(videoId).then(res => {
@@ -107,12 +110,14 @@ class App extends Component {
           handleSearchClick={ this.handleSearchClick } 
           handleMenuClick={ this.handleMenuClick} 
           meNu={ this.state.showMenu }
-          handleVideoClick={ this.state.handleVideoClick } />
+          handleVideoClick={ this.handleVideoClick } />
 
 
-          { this.state.searchClick  ? <SearchList videos={ this.state.searchResult } handleVideoClick={ this.handleVideoClick }/> 
+          { this.state.searchClick  ? <SearchList videos={ this.state.searchResult } handleVideoClick={ this.handleVideoClick } 
+                                                    handleVideoClick={ this.handleVideoClick }/> 
                                     : ( this.state.videoClick ? <VideoPlayer videoId = { this.state.videoId } videoInfo={ this.state.videoInfo } 
-                                                                      videos={ this.state.relatedVideos } list={ this.state.commentsList }/> 
+                                                                      videos={ this.state.relatedVideos } list={ this.state.commentsList }
+                                                                      handleVideoClick={ this.handleVideoClick }/> 
                                                               : <Gallery videos={ this.state.galleryVideos } 
                                                                         handleVideoClick={ this.handleVideoClick } /> )}
 

@@ -6,7 +6,7 @@ import CommentsList from "../commentsList/comments";
 class VideoPlayer extends Component {
 
     render (){
-        // console.log("in videoplayer", this.props)
+        // console.log("in videoplayer")
         if (!this.props.videoInfo) {
             return <div>Hello</div>
         }
@@ -23,8 +23,10 @@ class VideoPlayer extends Component {
                         <h1>{ title }</h1>
                         <div>{ viewCount }</div>
                     </div>
-                    <VideoList videoList={ this.props.videos }/>
-                    <CommentsList commentList= { this.props.list }/>
+                    <div style={ style.bottom }>
+                        <CommentsList commentList= { this.props.list }/>
+                        <VideoList videoList={ this.props.videos } handleVideoClick={ this.props.handleVideoClick}/>
+                    </div>
                 </div>
             )
         
