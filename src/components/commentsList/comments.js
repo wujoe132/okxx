@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import style from "./style";
+import style from "./style";
 
 class CommentsList extends Component {
     render(){
@@ -22,10 +22,12 @@ class CommentsList extends Component {
                         const id = video.id;
         
                         return (
-                            <div key={ index }>
-                                <img src={ imageUrl }onClick={ this.props.handleVideoClick } id={ id }></img>
-                                <h1  onClick={ this.props.handleVideoClick } id={ id }>{ title }</h1>
-                                <div onClick={ this.props.handleVideoClick }id={ id }>
+                            <div style={ style.block }>
+                                <div style={ style.profile }>
+                                    <img style={ style.img }src={ imageUrl }onClick={ this.props.handleVideoClick } id={ id }></img>
+                                    <h1  style={ style.title }onClick={ this.props.handleVideoClick } id={ id }>{ title }</h1>
+                                </div>
+                                <div style={ style.bottom }onClick={ this.props.handleVideoClick }id={ id }>
                                     <p onClick={ this.props.handleVideoClick } id={ id }>{ text }</p>
                                     <p onClick={ this.props.handleVideoClick } id={ id }>{ time }</p> 
                                 </div>

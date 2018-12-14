@@ -28,6 +28,7 @@ const style = {
         marginLeft: "30px",
         marginTop: "10px",
         marginBottom: "30px",
+        textDeoration: "none",
     },
     i: {
         paddingTop: "10px",

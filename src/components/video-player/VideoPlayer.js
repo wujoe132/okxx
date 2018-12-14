@@ -15,17 +15,18 @@ class VideoPlayer extends Component {
             const title = this.props.videoInfo.snippet.title;
             const viewCount = this.props.videoInfo.statistics.viewCount;
             return (
-                <div>
+                <div style={ style.block }>
                     <div style={ style.main }>
                         <iframe style={ style.video } title={ title} src={ url }></iframe>
+                        <VideoList videoList={ this.props.videos } handleVideoClick={ this.props.handleVideoClick}/>
                     </div>
-                    <div>
-                        <h1>{ title }</h1>
+                    <div style={ style.info }>
+                        <h1 style={ style.title }>{ title }</h1>
                         <div>{ viewCount }</div>
                     </div>
                     <div style={ style.bottom }>
                         <CommentsList commentList= { this.props.list }/>
-                        <VideoList videoList={ this.props.videos } handleVideoClick={ this.props.handleVideoClick}/>
+                        
                     </div>
                 </div>
             )

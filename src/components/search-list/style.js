@@ -16,11 +16,12 @@ const style = {
         boxSizing: "border-box",
         borderImage: "initial",
         resize: "none",
-        boxShadow: "1px 1px 1px 1px grey"
+        boxShadow: "1px 1px 1px 1px grey",
+        display: "flex"
 
     },
     img: {
-        width: "100px",
+        width: "250px",
         height: "200px",
         
         
@@ -34,7 +35,11 @@ const style = {
     para: {
         color: "grey",
         fontSize: "11px",
-        lineHeight: "0.5"
+        lineHeight: "0.5",
+        display: "block",
+    },
+    info: {
+        // display: "block",
     }
 }
 
